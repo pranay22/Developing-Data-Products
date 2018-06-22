@@ -1,0 +1,34 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Pranay Sarkar"
+date: '`r format(Sys.Date(),"%e %B, %Y")`'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = NULL, warning = FALSE)
+```
+
+## The Robey data frame
+
+```{r, message = FALSE}
+library(ggplot2)
+library(plotly)
+require(car)
+data(Robey, package = 'car')
+```
+
+```{r}
+g <- ggplot(data = Robey, aes(x = contraceptors, y = tfr)) +
+        geom_point(aes(text = paste('Country:', rownames(Robey)), 
+                       fill=region, size=2), colour="black", shape=21) +
+        ylab("Total fertility rate") +
+        xlab("% contraceptors among married women") + 
+        theme(legend.title=element_blank())
+
+ggplotly(g, tooltip = c("text", "x", "y")) %>%
+        layout(title = 'Fertility and Contraception')
+```
+
+
+
