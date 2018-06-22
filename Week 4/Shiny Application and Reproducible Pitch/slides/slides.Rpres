@@ -1,0 +1,43 @@
+Course Project: Shiny Application and Reproducible Pitch
+========================================================
+author: Pranay Sarkar
+date: 22 Juni 2018
+
+
+Overview
+========================================================
+
+This was built as part of a deliverable for the course **Developing Data Products** as part of the Coursera Data Science Specialization.
+
+
+Web Application functionality
+========================================================
+
+The site is provider for tools to select the most fit car for your trip.
+
+You are required to provide your trip detail like distance of your trip and the price of gasoline in your region in the input section. It is needed to calculate the gasoline expenditure for each car. Next, provide your budget on gasoline, so that the system can filter and show the car with has Miles per Gallon(MPG) that below your budget.
+
+You can choose your desire cars characteristic in term of : Cylinders, Displacement, Horse Power and Transmission. 
+
+The result contains filters selected cars will show in a table on the main content with using the mtcars dataset from [R].
+
+
+MTCARS Dataset
+========================================================
+
+The data used in the app comes from the Motor Trend Car Road Tests (mtcars) dataset. Let has a look on the mtcars's summary
+```{r, echo=FALSE}
+summary(mtcars)
+```
+
+
+Plot
+========================================================
+
+The relationship between miles per gallon (mpg) and displacement (disp) in the mtcars dataset.
+
+```{r, echo=FALSE}
+library(car)
+scatterplot.matrix(~mpg+disp, data=mtcars, cex.axis=1.5)
+```
+
